@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 // mongoose.set('strictQuery',true);
 // const dotenv = require('.env');
-const DB = 'mongodb+srv://bachan:bachan@codingninjas.vfseqo6.mongodb.net/Placement_Cell?retryWrites=true&w=majority';
+//const DB = 'mongodb+srv://bachan:bachan@codingninjas.vfseqo6.mongodb.net/Placement_Cell?retryWrites=true&w=majority';
 // dotenv.config({ path: 'config/.env' });
 
 //connecting mongoose with database
@@ -19,17 +19,27 @@ const DB = 'mongodb+srv://bachan:bachan@codingninjas.vfseqo6.mongodb.net/Placeme
 // }).catch((err) => console.log('no connection',err));
 
 
-mongoose.connect(DB, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+// mongoose.connect(DB, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+//});
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'Error in connecting to MongoDB'));
+// db.on('error', console.error.bind(console, 'Error in connecting to MongoDB'));
 
-db.once('open', function () {
-	console.log('Connected to Database :: Mongodb');
-});
+// db.once('open', function () {
+// 	console.log('Connected to Database :: Mongodb');
+// });
 
-module.exports = mongoose;
+// module.exports = mongoose;
+
+
+const mongoose = require("mongoose");
+// mongoose.set('strictQuery', false);
+const mongoDB = "mongodb://127.0.0.1/contact_list_db"; 
+main().catch(err => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+  console.log('connected to DB');
+}
